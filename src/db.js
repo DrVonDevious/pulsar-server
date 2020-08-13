@@ -4,7 +4,7 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: options.db.user,
   host: options.db.host,
-  database: "pulsar", //options.db.database, BROKEN FOR SOME REASON
+  database: options.db.database,
   password: options.db.password,
   port: options.db.port,
 })
