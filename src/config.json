@@ -1,0 +1,16 @@
+{
+  "db": {
+    "user": "bvcbujduurykkn",
+    "password": "b4d168fd0947b80b24c9d81e63ecab3305ea3e582855197377922ccf998c75b9",
+    "host": "ec2-52-204-20-42.compute-1.amazonaws.com",
+    "database": "dant0934lshu0h",
+    "port": "5432"
+  },
+
+  "jwt": {
+    "secret": "Xz|lswd,LLXeYB+^ae3<u!hl2wvV&s",
+    "jwtSession": {
+      "session": false
+    }
+  }
+}

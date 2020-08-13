@@ -51,7 +51,7 @@ web_modules/
 .npm
 
 # Database
-src/config.json
+# src/config.json
 
 # Optional eslint cache
 .eslintcache
