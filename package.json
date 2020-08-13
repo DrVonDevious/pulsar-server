@@ -1,0 +1,20 @@
+{
+  "name": "pulsar-server",
+  "version": "0.0.4",
+  "description": "A server for hosting Pulsar game client",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DrVonDevious",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "pg": "^8.3.0",
+    "socket.io": "^2.3.0",
+    "superagent": "^6.0.0"
+  }
+}
