@@ -18,6 +18,7 @@ app.use(
 )
 
 app.get('/', (request, response) => {
+  response.send('Server Running!')
 })
 
 app.get("/users", db.getUsers)
