@@ -78,11 +78,11 @@ const getCharacterById = (request, response) => {
 }
 
 const createCharacter = (request, response) => {
-  const { name, race, xpos, ypos, zpos, user_id } = request.body
+  const { name, race, xpos, ypos, zpos, user_id, inventory } = request.body
 
   pool.query(
-    "INSERT INTO characters (name, race, xpos, ypos, zpos, user_id) VALUES ($1, $2, $3, $4, $5, $6)",
-    [name, race, xpos, ypos, zpos, user_id], (error, result) => {
+    "INSERT INTO characters (name, race, xpos, ypos, zpos, user_id, inventory) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+    [name, race, xpos, ypos, zpos, user_id, inventory], (error, result) => {
       if (error) { throw error }
       response.status(201).send(`Character created with ID: ${result.insertId}`)
     }
@@ -91,11 +91,11 @@ const createCharacter = (request, response) => {
 
 const updateCharacter = (request, response) => {
   const id = parseInt(request.params.id)
-  const { name, race, xpos, ypos, zpos, user_id } = request.body
+  const { name, race, xpos, ypos, zpos, user_id, inventory } = request.body
 
   pool.query(
-    "UPDATE characters SET name = $1, race = $2, xpos = $3, ypos = $4, zpos = $5, user_id = $6 WHERE id = $7",
-    [name, race, xpos, ypos, zpos, user_id, id],
+    "UPDATE characters SET name = $1, race = $2, xpos = $3, ypos = $4, zpos = $5, user_id = $6, inventory = $7 WHERE id = $8",
+    [name, race, xpos, ypos, zpos, user_id, inventory, id],
     (error, results) => {
       if (error) { throw error }
       response.status(200).send(`Character modified with ID: ${id}`)
@@ -122,11 +122,11 @@ const getLocationById = (request, response) => {
 
 const updateLocation = (request, response) => {
   const id = parseInt(request.params.id)
-  const { name, description, x, y, z, exits } = request.body
+  const { name, description, x, y, z, exits, items } = request.body
 
   pool.query(
-    "UPDATE locations SET name = $1, description = $2, x = $3, y = $4, z = $5, exits = $6 WHERE id = $7",
-    [name, description, x, y, z, exits, id],
+    "UPDATE locations SET name = $1, description = $2, x = $3, y = $4, z = $5, exits = $6, items = $7 WHERE id = $8",
+    [name, description, x, y, z, exits, items, id],
     (error, results) => {
       if (error) { throw error }
       response.status(200).send(`Location modified with ID: ${id}`)
@@ -135,11 +135,11 @@ const updateLocation = (request, response) => {
 }
 
 const createLocation = (request, response) => {
-  const { name, description, x, y, z, exits } = request.body
+  const { name, description, x, y, z, exits, inventory } = request.body
 
   pool.query(
-    "INSERT INTO locations (name, description, x, y, z, exits) VALUES ($1, $2, $3, $4, $5, $6)",
-    [name, description, x, y, z, exits], (error, result) => {
+    "INSERT INTO locations (name, description, x, y, z, exits, items) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+    [name, description, x, y, z, exits, items], (error, result) => {
       if (error) { throw error }
       response.status(201).send(`Location created with ID: ${result.insertId}`)
     }
