@@ -61,7 +61,7 @@ const tick = () => {
 }
 
 const run = () => {
-  setInterval(tick(), 500)
+  setInterval(tick, 500)
 
   server.listen(port, () => {
     console.log(`All systems nominal! Pulsar server running on port ${port}.`)
