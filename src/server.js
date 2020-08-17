@@ -8,6 +8,7 @@ const server = require("http").Server(app)
 const io = require("socket.io")(server, {})
 
 const port = process.env.PORT || 3000
+let ticksSinceStart = 0
 
 app.use(bodyParser.json())
 
@@ -54,6 +55,19 @@ io.on("connection", (socket) => {
   })
 })
 
-server.listen(port, () => {
-  console.log(`All systems nominal! Pulsar server running on port ${port}.`)
-})
+const tick = () => {
+  ticksSinceStart++
+  io.emit("tick", { totalTicks:ticksSinceStart })
+}
+
+const run = () => {
+  setInterval(tick(), 500)
+
+  server.listen(port, () => {
+    console.log(`All systems nominal! Pulsar server running on port ${port}.`)
+  })
+}
+
+run()
+
+
