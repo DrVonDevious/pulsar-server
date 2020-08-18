@@ -53,6 +53,12 @@ io.on("connection", (socket) => {
     let player = data.player
     socket.broadcast.emit("player-update", { player:player })
   })
+
+  socket.on("item-taken", (data) => {
+    setTimeout(() => {
+      console.log(data)
+    }, data.time)
+  })
 })
 
 const tick = () => {
